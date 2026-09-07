@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibn Nisa Art  - Home</title>
+    <style>
+        /* CSS Reset and Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            position: relative;
+        }
+
+        header h1 {
+            /* Fallback to serif if 'hidayatulla' is not installed locally */
+            font-family: 'hidayatulla', 'Georgia', serif;
+            font-weight: bold;
+            font-size: 3rem;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            font-size: 1.1rem;
+            color: #666666;
+        }
+
+        /* Navigation Trigger Button (Top Left Corner) */
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 45px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #000000;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Black Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hidden default position */
+            width: 250px;
+            height: 100%;
+            background-color: #000000; /* Pure black background */
+            padding-top: 60px;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        /* Script toggle target */
+        .sidebar.active {
+            left: 0;
+        }
+
+        /* Close Button inside Navigation */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        /* Navigation List Style */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .nav-links li {
+            margin-bottom: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #cccccc; /* Subtle grey hover effect */
+        }
+
+        /* Main Content Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Toggle Button -->
+        <button class="menu-btn" id="menuToggle">☰</button>
+        
+        <!-- Heading and Subtitle -->
+        <h1>Ibn Nisa</h1>
+        <p>welcom to my page</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="sidebar" id="navBar">
+        <button class="close-btn" id="closeMenu">&times;</button>
+        <ul class="nav-links">
+    <li><a href="free.html">Free Design</a></li>
+    <li><a href="premium.html">Premium Design</a></li>
+</ul>
+    </nav>
+
+    
+
+    <!-- JavaScript functionality -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const navBar = document.getElementById('navBar');
+
+        // Function to open navigation panel
+        menuToggle.addEventListener('click', () => {
+            navBar.classList.add('active');
+        });
+
+        // Function to close navigation panel
+        closeMenu.addEventListener('click', () => {
+            navBar.classList.remove('active');
+        });
+
+        // Close panel if clicked outside the sidebar area
+        document.addEventListener('click', (event) => {
+            if (!navBar.contains(event.target) && !menuToggle.contains(event.target)) {
+                navBar.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
